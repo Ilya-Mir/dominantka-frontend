@@ -1,16 +1,5 @@
-import styles from './MainPage.module.scss';
+import MainPage from '@/pages/main';
 
-const MainPage = () => {
-  return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        Добро пожаловать
-      </header>
-      <main>
-        {/* Контент главной страницы */}
-      </main>
-    </div>
-  );
-};
-
-export default MainPage;
+export default function Page() {
+  return <MainPage />;
+}
