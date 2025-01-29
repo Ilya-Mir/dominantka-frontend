@@ -1,14 +1,22 @@
 'use client';
 
 import React, { useLayoutEffect, useState } from 'react';
-import Modal from 'react-modal';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Text,
+  VStack,
+} from '@chakra-ui/react';
 import styles from './AgeVerificationModal.module.scss';
 
 interface AgeVerificationModalProps {
   onReady: () => void;
 }
-
-Modal.setAppElement('#app-root');
 
 const AgeVerificationModal: React.FC<AgeVerificationModalProps> = ({
   onReady,
@@ -30,20 +38,29 @@ const AgeVerificationModal: React.FC<AgeVerificationModalProps> = ({
     onReady();
   };
 
+  const handleDecline = (): void => {
+    window.location.href = 'https://google.com';
+  };
+
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={() => setIsOpen(false)}
-      className={styles.modal}
-      overlayClassName={styles.overlay}
-    >
-      <div className={styles.content}>
-        <h1>Подтвердите ваш возраст</h1>
-        <p>Вам должно быть 18 лет или больше для входа на сайт.</p>
-        <button className={styles.button} onClick={handleConfirm}>
-          Мне есть 18
-        </button>
-      </div>
+    <Modal isOpen={isOpen} onClose={handleDecline} isCentered>
+      <ModalOverlay />
+      <ModalContent className={styles.modal}>
+        <ModalHeader>Подтвердите ваш возраст</ModalHeader>
+        <ModalBody>
+          <VStack spacing={4}>
+            <Text>Вам должно быть 18 лет или больше для входа на сайт.</Text>
+          </VStack>
+        </ModalBody>
+        <ModalFooter>
+          <Button className={styles.button} onClick={handleConfirm}>
+            Мне есть 18
+          </Button>
+          <Button className={styles.buttonAlt} onClick={handleDecline}>
+            Выйти
+          </Button>
+        </ModalFooter>
+      </ModalContent>
     </Modal>
   );
 };
