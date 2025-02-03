@@ -1,68 +1,69 @@
-'use client';
+'use client'
 
-import React, { useLayoutEffect, useState } from 'react';
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-  Text,
-  VStack,
-} from '@chakra-ui/react';
-import styles from './AgeVerificationModal.module.scss';
+import React, { useEffect, useState } from 'react'
+import Modal from 'react-modal'
+import { Container, StyledModal, StyledButton, Overlay } from './AgeVerificationModalStyles'
+import { Text, Box } from '@chakra-ui/react'
 
 interface AgeVerificationModalProps {
-  onReady: () => void;
+  onReady: () => void
 }
 
-const AgeVerificationModal: React.FC<AgeVerificationModalProps> = ({
-  onReady,
-}) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+const AgeVerificationModal: React.FC<AgeVerificationModalProps> = ({ onReady }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isClient, setIsClient] = useState<boolean>(false)
 
-  useLayoutEffect(() => {
-    const hasVerifiedAge = sessionStorage.getItem('ageVerified');
-    if (!hasVerifiedAge) {
-      setIsOpen(true);
-    } else {
-      onReady();
+  useEffect(() => {
+    setIsClient(true) // Гарантируем, что код выполняется только на клиенте
+    if (typeof window !== 'undefined' && document.getElementById('app-root')) {
+      Modal.setAppElement('#app-root')
     }
-  }, [onReady]);
+  }, [])
+
+  useEffect(() => {
+    if (isClient) {
+      const hasVerifiedAge = sessionStorage.getItem('ageVerified')
+      if (!hasVerifiedAge) {
+        setIsOpen(true)
+      } else {
+        onReady()
+      }
+    }
+  }, [onReady, isClient])
 
   const handleConfirm = (): void => {
-    sessionStorage.setItem('ageVerified', 'true');
-    setIsOpen(false);
-    onReady();
-  };
+    sessionStorage.setItem('ageVerified', 'true')
+    setIsOpen(false)
+    onReady()
+  }
 
   const handleDecline = (): void => {
-    window.location.href = 'https://google.com';
-  };
+    window.location.href = 'https://google.com'
+  }
+
+  if (!isClient) return null // Предотвращаем рендеринг на сервере
 
   return (
-    <Modal isOpen={isOpen} onClose={handleDecline} isCentered>
-      <ModalOverlay />
-      <ModalContent className={styles.modal}>
-        <ModalHeader>Подтвердите ваш возраст</ModalHeader>
-        <ModalBody>
-          <VStack spacing={4}>
-            <Text>Вам должно быть 18 лет или больше для входа на сайт.</Text>
-          </VStack>
-        </ModalBody>
-        <ModalFooter>
-          <Button className={styles.button} onClick={handleConfirm}>
-            Мне есть 18
-          </Button>
-          <Button className={styles.buttonAlt} onClick={handleDecline}>
-            Выйти
-          </Button>
-        </ModalFooter>
-      </ModalContent>
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={handleDecline}
+      className="_"
+      overlayClassName="_"
+      contentElement={(props, children) => <StyledModal {...props}>{children}</StyledModal>}
+      overlayElement={(props, content) => <Overlay {...props}>{content}</Overlay>}
+    >
+      <Container>
+        <Box display="flex" flexDirection="column" alignItems="center" gap={4}>
+          <Text fontSize="xl" fontWeight="bold">
+            Подтвердите ваш возраст
+          </Text>
+          <Text>Вам должно быть 18 лет или больше для входа на сайт.</Text>
+          <StyledButton onClick={handleConfirm}>Мне есть 18</StyledButton>
+          <StyledButton onClick={handleDecline}>Выйти</StyledButton>
+        </Box>
+      </Container>
     </Modal>
-  );
-};
+  )
+}
 
-export default AgeVerificationModal;
+export default AgeVerificationModal

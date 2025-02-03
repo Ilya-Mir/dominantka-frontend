@@ -1,27 +1,27 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import styles from './MainPage.module.scss';
-import AgeVerificationModal from '@/components/AgeVerificationModal';
+import React, { useState } from 'react'
+import AgeVerificationModal from '@/components/AgeVerificationModal'
+import { Container, Header } from './MainPageStyles'
 
 const MainPage = () => {
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(false)
 
   const handleReady = () => {
-    setIsReady(true);
-  };
+    setIsReady(true)
+  }
 
   return (
-    <div className={`${styles.container} ${!isReady ? styles.hidden : ''}`}>
+    <Container isReady={isReady}>
       <AgeVerificationModal onReady={handleReady} />
       {isReady && (
         <>
-          <header className={styles.header}>Добро пожаловать</header>
+          <Header>Добро пожаловать</Header>
           <main>{/* Контент главной страницы */}</main>
         </>
       )}
-    </div>
-  );
-};
+    </Container>
+  )
+}
 
-export default MainPage;
+export default MainPage

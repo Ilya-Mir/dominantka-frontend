@@ -1,10 +1,21 @@
 import { Provider } from '@/components/ui/provider'
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode
+  modal?: React.ReactNode
+}) {
   return (
     <html suppressHydrationWarning>
       <body>
-        <Provider>{children}</Provider>
+        <Provider>
+          <div id="app-root">
+            {children}
+            {modal}
+          </div>
+        </Provider>
       </body>
     </html>
   )
