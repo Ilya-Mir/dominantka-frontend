@@ -14,29 +14,17 @@ export const Overlay = styled.div`
   z-index: 1000;
 `
 
-export const StyledModal = styled.div`
+export const ModalContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const ModalBox = styled.div`
   background: white;
   padding: 24px;
   border-radius: 8px;
-  max-width: 500px;
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-`
-
-export const Container = styled.div`
+  max-width: 400px;
   text-align: center;
-`
-
-export const StyledButton = styled.button`
-  margin-top: 16px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `
