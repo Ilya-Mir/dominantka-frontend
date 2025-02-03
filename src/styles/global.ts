@@ -1,0 +1,49 @@
+import { css } from '@emotion/react'
+
+export const globalStyles = css`
+  @font-face {
+    font-family: 'Akvitania';
+    src: url('/fonts/Akvitania Modern/Akvitania Modern.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Advokat';
+    src: url('/fonts/Advokat Modern/Advokat Modern.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/static/Roboto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/static/Roboto-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/static/Roboto-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/static/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Akvitania', 'Roboto', sans-serif;
+  }
+`
