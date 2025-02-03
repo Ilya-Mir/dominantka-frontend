@@ -3,7 +3,11 @@
 import { useRouter } from 'next/navigation'
 import { Button, Text, VStack } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { Overlay, ModalContainer, ModalBox } from './AgeVerificationModalStyles'
+import {
+  Overlay,
+  ModalContainer,
+  ModalBox,
+} from '../../pages/age-verification/AgeVerificationModalStyles'
 
 export default function AgeVerificationModal() {
   const router = useRouter()
