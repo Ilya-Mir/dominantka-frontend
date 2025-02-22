@@ -1,7 +1,15 @@
 import { NextPage } from 'next'
 import { useRouter } from 'next/router'
 import { Button, Text, VStack } from '@chakra-ui/react'
-import { Overlay, ModalContainer, ModalBox } from './AgeVerificationModalStyles'
+import {
+  Overlay,
+  ModalContainer,
+  ModalBox,
+  Title,
+  Subtitle,
+  SubtitleWrapper,
+  SubtitleLine,
+} from './AgeVerificationModalStyles'
 
 const AgeVerificationPage: NextPage = () => {
   const router = useRouter()
@@ -20,6 +28,12 @@ const AgeVerificationPage: NextPage = () => {
       <ModalContainer>
         <ModalBox>
           <VStack gap={4}>
+            <Title>Dominantka.ru</Title>
+            <SubtitleWrapper>
+              <SubtitleLine />
+              <Subtitle>Здесь нет и никогда не будет секса и порно!</Subtitle>
+              <SubtitleLine />
+            </SubtitleWrapper>
             <Text fontSize="xl" fontWeight="bold">
               Подтвердите ваш возраст
             </Text>
