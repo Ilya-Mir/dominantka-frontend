@@ -1,8 +1,26 @@
-FROM node:20-alpine
+# Используем официальный образ Node.js
+FROM node:18-alpine
+
+# Устанавливаем рабочую директорию
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+
+# Копируем package.json и pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
+
+# Устанавливаем pnpm
+RUN npm install -g pnpm
+
+# Устанавливаем зависимости
+RUN pnpm install --frozen-lockfile
+
+# Копируем весь проект в контейнер
 COPY . .
-RUN npm run build
+
+# Собираем проект
+RUN pnpm build
+
+# Экспонируем порт 3000
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+
+# Запускаем приложение
+CMD ["pnpm", "start"]
