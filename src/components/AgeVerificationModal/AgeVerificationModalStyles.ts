@@ -51,10 +51,11 @@ export const ModalContainer = styled.div`
 export const ModalBox = styled.div`
   background: url('/img/age-bg.jpg') center/cover no-repeat;
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 24px;
   border-radius: 8px;
   max-width: 630px;
   text-align: center;
+  display: flex;
+  flex-flow: column nowrap;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
   position: relative;
@@ -96,6 +97,7 @@ export const Title = styled.h1`
   font-family: 'Akvitania', 'Roboto', sans-serif;
   font-size: 43px;
   font-weight: 400;
+  white-space: nowrap;
   color: #ffffff;
   position: relative;
   margin-bottom: 12px;
@@ -127,7 +129,7 @@ export const SubtitleWrapper = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   gap: 10px;
   position: relative;
@@ -135,7 +137,9 @@ export const SubtitleWrapper = styled.div`
   margin-bottom: 59px;
 
   ${media.tablet} {
+    justify-content: center;
     margin-bottom: 46px;
+    white-space: nowrap;
   }
 
   ${media.desktop} {
@@ -149,9 +153,11 @@ export const Subtitle = styled.h5`
   font-weight: 400;
   color: #ffffff;
   position: relative;
+  text-align: right;
 
   ${media.tablet} {
     font-size: 14px;
+    text-align: center;
   }
 `
 
@@ -161,7 +167,38 @@ export const ModalText = styled(Text)`
   line-height: 17px;
   font-weight: 400;
   text-align: left;
+  opacity: 90%;
   color: #ffffff;
+  margin-bottom: 40px;
+
+  ${media.tablet} {
+    margin-bottom: 15px;
+  }
+
+  ${media.desktop} {
+    margin-bottom: 12px;
+  }
+`
+
+export const CheckBoxWrapper = styled.div`
+  margin-bottom: 50px;
+
+  ${media.tablet} {
+    margin-bottom: 30px;
+  }
+
+  ${media.desktop} {
+    margin-bottom: 50px;
+  }
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+`
+
+export const ModalTextBold = styled.span`
+  font-weight: 800;
 `
 
 export const ModalContent = styled.div`

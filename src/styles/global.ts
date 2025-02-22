@@ -1,6 +1,12 @@
 import { css } from '@emotion/react'
 
 export const globalStyles = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   @font-face {
     font-family: 'Akvitania';
     src: url('/fonts/Akvitania Modern/Akvitania Modern.ttf') format('truetype');
@@ -43,7 +49,19 @@ export const globalStyles = css`
     font-style: normal;
   }
 
+  html,
   body {
-    font-family: 'Akvitania', 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
   }
 `
