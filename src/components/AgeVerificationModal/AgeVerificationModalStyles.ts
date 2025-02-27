@@ -176,7 +176,7 @@ export const ModalText = styled(Text)`
   }
 
   ${media.desktop} {
-    margin-bottom: 12px;
+    margin-bottom: 20px;
   }
 `
 
