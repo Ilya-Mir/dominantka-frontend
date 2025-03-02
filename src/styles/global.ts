@@ -60,6 +60,10 @@ export const globalStyles = css`
     scroll-behavior: smooth;
   }
 
+  #__next {
+    min-height: 100vh;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

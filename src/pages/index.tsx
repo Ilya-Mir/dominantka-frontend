@@ -1,8 +1,6 @@
-'use client'
-
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Box, Button, Text } from '@chakra-ui/react'
+import { Container, TextTitle, TextWrapper, Title, Text, ContentWrapper } from '@/styles/pages'
 
 export default function MainPage() {
   const router = useRouter()
@@ -20,13 +18,29 @@ export default function MainPage() {
   if (!isReady) return null
 
   return (
-    <Box textAlign="center" p={6}>
-      <Text fontSize="2xl" fontWeight="bold">
-        Добро пожаловать
-      </Text>
-      <Button colorScheme="blue" onClick={() => router.push('/age-verification')}>
-        Проверить возраст снова
-      </Button>
-    </Box>
+    <Container>
+      <ContentWrapper>
+        <Title>ДОБРО ПОЖАЛОВАТЬ НА DOMINANTKA.RU, ТУТ ВАС ЖДУТ:</Title>
+        <TextWrapper>
+          <TextTitle>БДСМ ЗНАКОМСТВА</TextTitle>
+          <Text>
+            Сайт создан с целью поддержать тех, кто ищет реальные БДСМ встречи и человека, с которым
+            можно разделить свои желания.
+          </Text>
+          <TextTitle>УДОБСТВО ПОИСКА ГОСПОЖИ</TextTitle>
+          <Text>
+            Здесь размещены анкеты Верхних дам, которые любят ролевые игры в стиле БДСМ и Фемдом по
+            в разным городам нашей страны, а также дружественных стран. Возможность найти Госпожу
+            именно в вашем городе/стране.
+          </Text>
+          <TextTitle>БЕЗОПАСНОСТЬ РЕАЛ ВСТРЕЧ</TextTitle>
+          <Text>
+            Каждая девушка на этом сайте - реальная Госпожа БДСМ. Администрация сайта фильтрует все
+            анкеты во избежание фейков, скамов, развода т.д. Сайт не несет ответственности за
+            качество проведенных сессий и другое (отсылка на блог ОРГ ИНФА)
+          </Text>
+        </TextWrapper>
+      </ContentWrapper>
+    </Container>
   )
 }
