@@ -15,8 +15,8 @@ export const globalStyles = css`
   }
 
   @font-face {
-    font-family: 'Advokat';
-    src: url('/fonts/Advokat Modern/Advokat Modern.ttf') format('truetype');
+    font-family: 'AdvokatModern';
+    src: url('/fonts/AdvokatModern/AdvokatModern.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
   }

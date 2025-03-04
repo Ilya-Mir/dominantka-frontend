@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Container, TextTitle, TextWrapper, Title, Text, ContentWrapper } from '@/styles/pages'
+import {
+  Container,
+  TextTitle,
+  TextWrapper,
+  Title,
+  Text,
+  ContentWrapper,
+  MakeHappierWrapper,
+  MakeHappierTitle,
+  MakeHappierText,
+} from '@/styles/pages'
 
 export default function MainPage() {
   const router = useRouter()
@@ -40,6 +50,13 @@ export default function MainPage() {
             качество проведенных сессий и другое (отсылка на блог ОРГ ИНФА)
           </Text>
         </TextWrapper>
+        <MakeHappierWrapper>
+          <MakeHappierTitle>Станьте счастливее</MakeHappierTitle>
+          <MakeHappierText>
+            Мы знаем точно, что реализация желаний в БДСМ делает людей счастливее! Жмите на кнопку и
+            выбирайте свой город
+          </MakeHappierText>
+        </MakeHappierWrapper>
       </ContentWrapper>
     </Container>
   )
