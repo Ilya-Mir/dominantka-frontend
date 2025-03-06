@@ -28,6 +28,10 @@ export default function MainPage() {
     }
   }, [router])
 
+  const handleCatalogClick = () => {
+    router.push('/catalog')
+  }
+
   if (!isReady) return null
 
   return (
@@ -62,7 +66,7 @@ export default function MainPage() {
             </MakeHappierText>
           </MakeHappierWrapper>
           <ButtonContainer>
-            <CustomButton variant="solid" size="280px">
+            <CustomButton variant="solid" size="280px" onClick={handleCatalogClick}>
               НАЙТИ ГОСПОЖУ БДСМ
             </CustomButton>
           </ButtonContainer>
