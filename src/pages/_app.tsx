@@ -3,6 +3,20 @@ import { ChakraProvider, defaultSystem } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 import { globalStyles } from '@/styles/global'
 import Head from 'next/head'
+import styled from '@emotion/styled'
+
+const AppWrapper = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+`
+
+const MainContent = styled.main`
+  flex: 1;
+  position: relative;
+  z-index: 1;
+`
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -12,7 +26,11 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ChakraProvider value={defaultSystem}>
         <Global styles={globalStyles} />
-        <Component {...pageProps} />
+        <AppWrapper>
+          <MainContent>
+            <Component {...pageProps} />
+          </MainContent>
+        </AppWrapper>
       </ChakraProvider>
     </>
   )

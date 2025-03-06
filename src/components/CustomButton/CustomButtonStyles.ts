@@ -13,18 +13,19 @@ export const StyledButton = styled.button<ButtonProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  padding: 0 16px;
+  height: 48px;
+  padding: 0 24px;
   font-family: 'Roboto', sans-serif;
   font-weight: 600;
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 14px;
+  line-height: 16px;
   letter-spacing: 0%;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: 2px solid #0e40b5;
   text-transform: uppercase;
+  margin-top: 20px;
 
   ${({ size }) => `
     width: ${size === 'full' ? '100%' : size};

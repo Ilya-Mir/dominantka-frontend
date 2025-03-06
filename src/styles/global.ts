@@ -54,7 +54,7 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #000;
+    background-color: #0d141a;
     color: #fff;
     min-height: 100vh;
     scroll-behavior: smooth;

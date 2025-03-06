@@ -6,7 +6,9 @@
 .pnp.*
 .yarn/*
 !.yarn/patches
+.vscode
 !.yarn/plugins
+.idea
 !.yarn/releases
 !.yarn/versions
 

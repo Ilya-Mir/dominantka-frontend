@@ -6,7 +6,7 @@ export const Container = styled.div`
   margin: 0 auto;
   position: relative;
   overflow-x: hidden;
-  height: 100vh;
+  min-height: 100vh;
 
   &:before {
     content: '';
@@ -14,7 +14,7 @@ export const Container = styled.div`
     pointer-events: none;
     position: absolute;
     right: 0;
-    top: 10px;
+    padding-top: 10px;
     width: 105%;
     height: 100%;
     background: url('/img/main-bg.webp') top right no-repeat;
@@ -31,7 +31,7 @@ export const Container = styled.div`
     left: 0;
     top: 0;
     width: 150%;
-    aspect-ratio: 1 / 2;
+    height: 100%;
     background: url('/img/dominantkaru-text-main.webp') left top no-repeat;
     background-size: contain;
     z-index: 0;
@@ -41,21 +41,11 @@ export const Container = styled.div`
     &:before {
       width: 70%;
     }
-
-    &:after {
-      width: 100%;
-    }
   }
 
   ${media.desktop} {
     &:before {
       width: 100%;
-      right: -5vw;
-    }
-
-    &:after {
-      width: 80%;
-      height: 80%;
     }
   }
 `
@@ -111,11 +101,11 @@ export const TextWrapper = styled.div`
   gap: 15px;
 
   ${media.tablet} {
-    margin-bottom: 35px;
+    margin-bottom: 50px;
   }
 
   ${media.desktop} {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
   }
 `
 
@@ -143,6 +133,7 @@ export const MakeHappierWrapper = styled.div`
   margin-bottom: 66px;
   justify-content: flex-start;
   position: relative;
+  margin-right: 60px;
 
   ${media.tablet} {
     margin-bottom: 35px;
@@ -156,11 +147,13 @@ export const MakeHappierWrapper = styled.div`
     content: '';
     display: block;
     position: absolute;
-    width: 84px;
-    height: 89px;
+    width: 146px;
+    height: 122px;
+    transform: scale(0.7);
+    background-size: contain;
     background: url('/img/heart.webp') center no-repeat;
-    top: -50px;
-    right: -40px;
+    top: -68px;
+    right: -78px;
   }
 `
 
@@ -189,5 +182,19 @@ export const MakeHappierText = styled.div`
 
   ${media.desktop} {
     max-width: 400px;
+  }
+`
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 117px;
+
+  ${media.tablet} {
+    margin-bottom: 138px;
+  }
+
+  ${media.desktop} {
+    margin-bottom: 260px;
   }
 `
