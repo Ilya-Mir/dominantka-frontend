@@ -11,6 +11,7 @@ import {
 } from '@/styles/pages/catalog'
 import Footer from '@/components/Footer'
 import TypeSelectionModal from '@/components/TypeSelectionModal'
+import { CatalogHeader } from '@/components/CatalogHeader'
 
 // Временные данные для демонстрации
 const mockData = Array(12).fill({
@@ -23,7 +24,7 @@ const CatalogPage = () => {
   const router = useRouter()
   const [isReady, setIsReady] = useState(false)
   const [showTypeModal, setShowTypeModal] = useState(true)
-  const [selectedType, setSelectedType] = useState<'real' | 'virt' | null>(null)
+  const [selectedType, setSelectedType] = useState<'real' | 'virt'>('real')
 
   useEffect(() => {
     const hasVerifiedAge = sessionStorage.getItem('ageVerified')
@@ -43,6 +44,7 @@ const CatalogPage = () => {
 
   return (
     <>
+      <CatalogHeader type={selectedType} />
       <Container>
         <Grid>
           {mockData.map((item, index) => (

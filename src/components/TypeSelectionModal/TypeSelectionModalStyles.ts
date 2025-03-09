@@ -22,6 +22,7 @@ export const StyledContent = styled(Dialog.Content)`
 
 export const ModalContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: stretch;
   justify-content: center;
   width: 100%;
@@ -29,24 +30,26 @@ export const ModalContainer = styled.div`
   position: relative;
   z-index: 1001;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+  ${media.tablet} {
+    flex-direction: row;
   }
 `
 
 export const ContentWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 20px;
+  gap: 20px;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+  ${media.tablet} {
+    flex-direction: row;
+    padding: 0 40px;
+    gap: 0;
   }
 `
 
@@ -55,31 +58,32 @@ export const HalfContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
   align-items: center;
   width: 100%;
+  padding: 0;
 
-  @media (max-width: 768px) {
-    padding: 0;
+  &:first-of-type {
+    margin-bottom: 60px;
+  }
+
+  ${media.tablet} {
+    padding: 20px;
+
     &:first-of-type {
-      margin-bottom: 60px;
+      margin-bottom: 0;
     }
   }
 `
 
 export const ImageWrapper = styled.div`
   position: relative;
-  width: min(400px, 100%);
-  height: min(400px, 100vw);
-  cursor: pointer;
+  width: 60vw;
+  height: 60vw;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 768px) {
-    width: 60vw;
-    height: 60vw;
-  }
+  cursor: pointer;
+  user-select: none;
 
   &:before {
     content: '';
@@ -87,24 +91,26 @@ export const ImageWrapper = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
+    width: 45vw;
+    height: 45vw;
     border: 3px solid rgba(255, 0, 0, 0.9);
     border-radius: 50%;
-    pointer-events: none;
     box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.4);
+    pointer-events: none;
+  }
 
-    @media (max-width: 768px) {
-      width: 45vw;
-      height: 45vw;
-    }
+  ${media.tablet} {
+    width: min(400px, 100%);
+    height: min(400px, 100vw);
 
-    ${media.tablet} {
+    &:before {
       width: calc(300px + 5vw);
       height: calc(300px + 5vw);
     }
+  }
 
-    ${media.desktop} {
+  ${media.desktop} {
+    &:before {
       width: calc(300px + 5vw);
       height: calc(300px + 5vw);
     }
@@ -112,17 +118,13 @@ export const ImageWrapper = styled.div`
 `
 
 export const StyledPicture = styled.picture`
-  width: 300px;
-  height: 300px;
+  width: 45vw;
+  height: 45vw;
   display: block;
   position: relative;
   border-radius: 50%;
   overflow: hidden;
-
-  @media (max-width: 768px) {
-    width: 45vw;
-    height: 45vw;
-  }
+  user-select: none;
 
   ${media.tablet} {
     width: calc(300px + 5vw);
@@ -141,34 +143,35 @@ export const StyledImage = styled.img<{ isHovered: boolean }>`
   object-fit: cover;
   filter: ${({ isHovered }) => (isHovered ? 'none' : 'grayscale(100%)')};
   transition: filter 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 `
 
 export const Divider = styled.div`
-  position: relative;
-  width: 60px;
-  background: url('/img/divider.webp') center/auto 100% no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100vw;
+  transform: rotate(90deg);
+  background: url('/img/divider.webp') center 100% no-repeat;
+  margin: 20px 0;
   flex-shrink: 0;
+  background-size: contain;
 
-  @media (min-width: 769px) {
-    height: 100vh;
-  }
-
-  @media (max-width: 768px) {
+  ${media.tablet} {
     width: 60px;
-    height: 100%;
-    position: absolute;
-    transform: rotate(90deg);
-    background: url('/img/divider.webp') center/contain 100% no-repeat;
-    margin: 20px 0;
+    position: relative;
+    height: 100vh;
+    transform: none;
+    background: url('/img/divider.webp') center/auto 100% no-repeat;
+    margin: 0;
   }
 `
 
 export const Title = styled.h2`
   font-family: 'Akvitania', 'Roboto', sans-serif;
   color: #ffffff;
-  font-size: 32px;
+  font-size: 24px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
   font-weight: 400;
   width: min(400px, 100%);
   display: flex;
@@ -185,8 +188,8 @@ export const Title = styled.h2`
     background-color: #ffffff;
   }
 
-  @media (max-width: 768px) {
-    margin-top: 10px;
-    font-size: 24px;
+  ${media.tablet} {
+    margin-top: 20px;
+    font-size: 32px;
   }
 `
